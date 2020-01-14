@@ -1,5 +1,9 @@
    <div id="movie-page"> 
-    <div class="movie-bg">
+    <div class="movie-bg" [ngStyle]="{
+        'background-image': 'url('+ this.movieData.imageUrl + ')'
+    }">
+
+    </div>
         <div class="container">
             <div class="movie-content">
                 <div class="row">
@@ -8,7 +12,7 @@
                     </div>
                     <div class="col-md-6">
                         <h1>Star Wars: The Rise of SkyWalker</h1>
-                        <div>Release Date: 12/14/2019</div>
+                        <div class="release">Release Date: 12/14/2019</div>
                         <p>
                             Star Wars: The Rise of Skywalker (also known as Star Wars: Episode IX – The Rise of Skywalker) is a 2019 American epic
                             space-opera film produced, co-written, and directed by J. J. Abrams. It is the third installment of the Star Wars sequel
@@ -21,13 +25,13 @@
                         </p>
                     </div>
                     <div class="col-md-3">
-                    <div class="btn-primary">Get Tickets</div>
+                            <button type="button" class="btn btn-primary">Get Tickets</button>
                     </div>
                 </div>
                 
                 </div>
             </div>
-        </div>
+        
     </div>
 
 

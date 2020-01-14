@@ -1,11 +1,14 @@
 #movie-page {
-    overflow: hidden;
+    position: relative;
+    padding: 100px 0;
 }
 .movie-content {
     background: white;
+    padding: 20px;
     -webkit-box-shadow: 0px 12px 31px -8px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 12px 31px -8px rgba(0,0,0,0.75);
     box-shadow: 0px 12px 31px -8px rgba(0,0,0,0.75);
+    position: relative;
     z-index: 2;
         .movie-poster {
         width: 100%;
@@ -22,10 +25,15 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        height: 100vh;
+        height: 100%;
         filter: blur(50px);
         transform: scale(1.2);
         position: absolute;
         top: 0;
         width: 100%;
+}
+
+.release {
+    margin-bottom: 1rem;
+    color : #696969;
 }
