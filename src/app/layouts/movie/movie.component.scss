@@ -1,0 +1,31 @@
+#movie-page {
+    overflow: hidden;
+}
+.movie-content {
+    background: white;
+    -webkit-box-shadow: 0px 12px 31px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 12px 31px -8px rgba(0,0,0,0.75);
+    box-shadow: 0px 12px 31px -8px rgba(0,0,0,0.75);
+    z-index: 2;
+        .movie-poster {
+        width: 100%;
+        height: 400px;
+        background: url('https://images-na.ssl-images-amazon.com/images/I/812WFDtTEoL._SY679_.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+    }
+}
+.movie-bg {
+        background: url('https://images-na.ssl-images-amazon.com/images/I/812WFDtTEoL._SY679_.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        filter: blur(50px);
+        transform: scale(1.2);
+        position: absolute;
+        top: 0;
+        width: 100%;
+}
