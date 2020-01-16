@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   movieData;
 
   constructor(service: MoviesService, private router: Router) {
-
+    
       this.movieData = service.getAllMovies();
     
    }
@@ -21,5 +21,7 @@ export class HomeComponent implements OnInit {
   clickedMovie(slug) {
     this.router.navigate(['movies',slug])
   }
+
+  
 
 }
