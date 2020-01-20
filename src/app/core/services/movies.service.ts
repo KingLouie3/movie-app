@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: "root"
@@ -41,7 +40,7 @@ export class MoviesService {
     }
   ];
 
-  constructor(public _http: HttpClient) {}
+  constructor() {}
   getAllMovies() {
     return this.movieData;
   }
@@ -50,12 +49,12 @@ export class MoviesService {
       return movie.slug === slug;
     });
   }
-  baseUrl: string =  "https://api.themoviedb.org/3/discover/movie?"
-  apiKey: string = "api_key=fa6d14f9e93a82672442211716f689ca"
-  LastUrl: string = "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1";
-  getMoviesFromApi() {
-  return this._http.get(`${this.baseUrl}+${this.apiKey}+${this.LastUrl}`);
+  // baseUrl: string =  "https://api.themoviedb.org/3/discover/movie?"
+  // apiKey: string = "api_key=fa6d14f9e93a82672442211716f689ca"
+  // LastUrl: string = "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1";
+  // getMoviesFromApi() {
+  // return this._http.get(`${this.baseUrl}+${this.apiKey}+${this.LastUrl}`);
   
-  }
+  // }
   
 }

@@ -1,3 +1,130 @@
-<div class="container">
-    <p>schedule works!</p>
- </div>
+<div id="schedule-page">
+  <div class="schedule-bg" [ngStyle]="{
+        'background-image': 'url('+ this.scheduleData.imageUrl + ')'
+    }">
+
+  </div>
+  <div class="container">
+    <div class="schedule-content">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Star Wars: The Rise of SkyWalker</h1>
+        </div>
+        <div class="col-md-12 col-lg-6">
+          <section id="hours-section">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="section-title">Choose a Time</div>
+                <div class="hours-menu">
+                  <div class="time">3:00pm</div>
+                  <div class="time" >6:00pm</div>
+                  <div class="time">9:00pm</div>
+                  <div class="time">11:30pm</div>
+                </div>
+              </div>
+            </div>
+            </section>
+            <section id="tickets-section">
+              <div class="row">
+                <div class="col-sm-12 col-md-6">
+                  <div class="section-title">How Many Tickets?</div>
+                  <div class="tickets-menu">
+                    <div class="ticket-selection">
+                        <div class="colu">Adult</div>
+                        <div class="colu"><input type="text" value="1"></div>
+                        <div class="colu">x $15.03</div>
+                        <div class="colu">= $15.03</div>
+                      </div>
+                      <div class="ticket-selection">
+                        <div class="colu">Child</div>
+                        <div class="colu"><input type="text" value="1"></div>
+                        <div class="colu">x $12.06</div>
+                        <div class="colu">= $12.06</div>
+                      </div>
+                      <div class="ticket-selection">
+                        <div class="colu">Child</div>
+                        <div class="colu"><input type="text" value="1"></div>
+                        <div class="colu">x $11.53</div>
+                        <div class="colu">= $11.53</div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+        </div>
+        <div class="col-md-12 col-lg-6">
+          <section id="chair-section">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="chairs-grid">
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair reserved"></div>
+                  <div class="chair"></div>
+                  <div class="chair selected"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+    
+                </div>
+              </div>
+            </div>
+            <div class="chairs-legend">
+              <div class="icon">
+                <div class="selected-box"></div>
+               <span class="text">Selected</span> 
+              </div>
+              <div class="icon">
+                <div class="reserved-box"></div>
+               <span class="text">Reserved</span> 
+              </div>
+              <div class="icon">
+                <div class="open-box"></div>
+               <span class="text">Open</span> 
+              </div>
+            </div>
+            <div class="continue">
+              <div class="continue-btn">
+                Continue
+              </div>
+            </div>
+    
+          </section>
+          
+        </div>
+      </div>
+      
+      
+
+
+    </div>
+  </div>
+</div>
