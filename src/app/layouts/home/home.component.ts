@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesService } from 'src/app/core/services/movies.service';
+import { MovieService } from 'src/app/core/services/movies.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   movieData;
 
-  constructor(service: MoviesService, private router: Router) {
+  constructor(service: MovieService, private router: Router) {
     
       this.movieData = service.getAllMovies();
     

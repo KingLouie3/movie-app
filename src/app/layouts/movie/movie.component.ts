@@ -1,6 +1,6 @@
-import { MoviesService } from 'src/app/core/services/movies.service';
+import { MovieService } from 'src/app/core/services/movies.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MovieComponent implements OnInit {
   movieData;
-  constructor(service: MoviesService, private route: ActivatedRoute) { 
+  constructor(service: MovieService, private route: ActivatedRoute, private router: Router) { 
     this.route.paramMap.subscribe(params => {
       this.movieData = service.getMovieData(params.get('title'))[0]
     ;
@@ -16,8 +16,10 @@ export class MovieComponent implements OnInit {
     })
   }
 
-  ngOnInit() {
-    
+  ngOnInit() {}
+  clickedTicketsBtn(slug) {
+    console.log("Button clicked")
+    this.router.navigate(['movies', slug, 'schedule'])
   }
 
 }

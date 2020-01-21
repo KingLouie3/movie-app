@@ -11,7 +11,7 @@ import { CheckoutComponent } from './layouts/checkout/checkout.component';
 import { MainLayoutComponent } from './shared/main-layout/main-layout.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { MoviesService } from './core/services/movies.service';
+import { MovieService } from './core/services/movies.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { MoviesService } from './core/services/movies.service';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [MoviesService],
+  providers: [MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
