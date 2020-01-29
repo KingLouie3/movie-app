@@ -19,9 +19,15 @@
                   <div class="time " (click)="chooseTime('3:00')"
                   [ngClass]="{'selected': time == '3:00'}"
                   >3:00pm</div>
-                  <div class="time " (click)="chooseTime('6:00')" [ngClass]="{'selected': time == '6:00'}">6:00pm</div>
-                  <div class="time " (click)="chooseTime('9:00')" [ngClass]="{'selected': time == '9:00'}">9:00pm</div>
-                  <div class="time " (click)="chooseTime('11:30')" [ngClass]="{'selected': time == '11:30'}">11:30pm</div>
+                  <div class="time " (click)="chooseTime('6:00')" [ngClass]="{'selected': time == '6:00'}"
+                  [ngClass]="{'selected': time == '6:00'}"
+                  >6:00pm</div>
+                  <div class="time " (click)="chooseTime('9:00')" [ngClass]="{'selected': time == '9:00'}"
+                  [ngClass]="{'selected': time == '9:00'}"
+                  >9:00pm</div>
+                  <div class="time " (click)="chooseTime('11:30')" [ngClass]="{'selected': time == '11:30'}"
+                  [ngClass]="{'selected': time == '11:30'}"
+                  >11:30pm</div>
                 </div>
               </div>
             </div>
@@ -33,21 +39,21 @@
                   <div class="tickets-menu">
                     <div class="ticket-selection">
                         <div class="colu">Adult</div>
-                        <div class="colu"><input type="text" value="1"></div>
-                        <div class="colu">x $15.03</div>
-                        <div class="colu">= $15.03</div>
+                        <div class="colu"><input type="text" value="1" [(ngModel)]="adultTickets"></div>
+                        <div class="colu">x ${{adultTicketsPrice}}</div>
+                        <div class="colu">= ${{adultTickets * adultTicketsPrice}}</div>
                       </div>
                       <div class="ticket-selection">
                         <div class="colu">Child</div>
-                        <div class="colu"><input type="text" value="0"></div>
-                        <div class="colu">x $12.06</div>
-                        <div class="colu">= $12.06</div>
+                        <div class="colu"><input type="text" value="0" [(ngModel)]="childTickets"></div>
+                        <div class="colu">x ${{childTicketsPrice}}</div>
+                        <div class="colu">= ${{childTickets * childTicketsPrice}}</div>
                       </div>
                       <div class="ticket-selection">
-                        <div class="colu">Child</div>
-                        <div class="colu"><input type="text" value="0"></div>
-                        <div class="colu">x $11.53</div>
-                        <div class="colu">= $11.53</div>
+                        <div class="colu">Senior</div>
+                        <div class="colu"><input type="text" value="0" [(ngModel)]="seniorTickets"></div>
+                        <div class="colu">x ${{seniorTicketsPrice}}</div>
+                        <div class="colu">= {{seniorTickets * seniorTicketsPrice}}</div>
                       </div>
                   </div>
                 </div>
@@ -59,8 +65,10 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="chairs-grid">
-                  <div class="chair"></div>
-                  <div class="chair"></div>
+                  <ng-container *ngFor="let chair of movieData.chairs; index as i">
+                  <div class="chair" [ngClass]="{'reserved': chair === 'reserved'}"  (click)="clickedChair()">{{i}}</div>
+                  </ng-container>
+                  <!-- <div class="chair"></div>
                   <div class="chair reserved"></div>
                   <div class="chair"></div>
                   <div class="chair selected"></div>
@@ -94,8 +102,7 @@
                   <div class="chair"></div>
                   <div class="chair"></div>
                   <div class="chair"></div>
-                  <div class="chair"></div>
-    
+                  <div class="chair"></div> -->
                 </div>
               </div>
             </div>

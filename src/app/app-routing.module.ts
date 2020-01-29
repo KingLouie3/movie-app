@@ -13,6 +13,10 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path:'search/:query',
+    component: HomeComponent
+  },
+  {
     path: 'movies/:title',
     component: MovieComponent
   },

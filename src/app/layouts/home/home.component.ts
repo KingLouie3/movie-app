@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from 'src/app/core/services/movies.service';
-import { Router } from '@angular/router';
-
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,19 +8,42 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   movieData;
-
-  constructor(service: MovieService, private router: Router) {
+  movies;
+  imageUrl = 'https://image.tmdb.org/t/p/original/';
+  private mode = 'home'
+  constructor(private service: MovieService, private router: Router, private route: ActivatedRoute) {
     
       this.movieData = service.getAllMovies();
     
    }
 
   
-  ngOnInit() {}
+  ngOnInit() {
+    this.route.paramMap.subscribe(
+      (paramMap: ParamMap) => {
+        if(paramMap.has('query')){
+          this.service.searchMovies(this.service.query)
+          .subscribe(
+        (response : any) => {
+          this.movies = response.results;
+          console.log("movies", this.movies);
+        })
+        }else{
+          this.service.getMoviesApi()
+          .subscribe(
+        (response : any) => {
+          this.movies = response.results;
+          console.log("movies", this.movies);
+  })
+        }
+      }
+    )
+  }
+    
   clickedMovie(slug) {
-    this.router.navigate(['movies',slug])
+    this.router.navigate(['movies',slug]);
   }
 
   
-
+  
 }

@@ -1,13 +1,15 @@
 <p>home works!</p>
 <div id="movies-list">
     <div class="row">
-        <div class="col-md-3" *ngFor="let movie of movieData"
+        <div class="col-md-3" *ngFor="let movie of movies"
         >
             <div class="movie-box" 
             (click)="clickedMovie(movie.slug)"
             [ngStyle]="{
-                'background-image': 'url('+ movie.imageUrl + ')'
+                'background-image': 'url('+ 'https://image.tmdb.org/t/p/original/' +  movie.poster_path + ')'
             }">
+            
+
                 <div class="av sold-out">
                     <div class="status">
                         Tickets Available
@@ -16,7 +18,7 @@
             </div>
         </div>
        
-       
     </div>
     
 </div>
+<!-- 'background-image': 'url('+ movie.imageUrl + ')' -->
