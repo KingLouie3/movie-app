@@ -28,7 +28,9 @@ export class HomeComponent implements OnInit {
           this.movies = response.results;
           console.log("movies", this.movies);
         })
-        }else{
+        } 
+        
+        else {
           this.service.getMoviesApi()
           .subscribe(
         (response : any) => {
@@ -40,8 +42,8 @@ export class HomeComponent implements OnInit {
     )
   }
     
-  clickedMovie(slug) {
-    this.router.navigate(['movies',slug]);
+  clickedMovie(id : any) {
+    this.router.navigate(['movies/']);
   }
 
   

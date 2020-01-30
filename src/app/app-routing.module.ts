@@ -17,7 +17,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'movies/:title',
+    path: 'movies',
     component: MovieComponent
   },
   {

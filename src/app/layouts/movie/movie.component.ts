@@ -8,7 +8,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class MovieComponent implements OnInit {
   movieData;
-  constructor(service: MovieService, private route: ActivatedRoute, private router: Router) { 
+  selectedMovie;
+  constructor(private service: MovieService, private route: ActivatedRoute, private router: Router) { 
     this.route.paramMap.subscribe(params => {
       this.movieData = service.getMovieData(params.get('title'))[0]
     ;
@@ -16,7 +17,11 @@ export class MovieComponent implements OnInit {
     })
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.selectedMovie  = this.service.selectedMovie;
+    window.scrollTo(0, 0);
+
+  }
   clickedTicketsBtn(slug) {
     console.log("Button clicked")
     this.router.navigate(['movies', slug, 'schedule'])

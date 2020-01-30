@@ -1,6 +1,6 @@
    <div id="movie-page"> 
-    <div class="movie-bg" [ngStyle]="{
-        'background-image': 'url('+ this.movieData.imageUrl + ')'
+    <div class="movie-bg"[ngStyle]="{
+        'background-image': 'url('+ 'https://image.tmdb.org/t/p/original/' +  service.selectedMovie.poster_path + ')'
     }">
 
     </div>
@@ -9,14 +9,14 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="movie-poster" [ngStyle]="{
-                            'background-image': 'url('+ this.movieData.imageUrl + ')'
+                            'background-image': 'url('+ 'https://image.tmdb.org/t/p/original/' +  service.selectedMovie.poster_path + ')'
                         }"></div>
                     </div>
                     <div class="col-md-6">
-                        <h1>{{movieData.title}}</h1>
-                        <div class="release">{{movieData.releaseDate}}</div>
+                        <h1>{{selectedMovie.title}}</h1>
+                        <div class="release">{{selectedMovie.release_date}}</div>
                         <p>
-                            {{movieData.synopsis}}
+                            {{selectedMovie.overview}}
                         </p>
                     </div>
                     <div class="col-md-3">

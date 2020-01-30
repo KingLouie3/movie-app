@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
+import { element } from 'protractor';
 
 @Injectable({
   providedIn: "root"
@@ -12,6 +13,7 @@ export class MovieService {
   query: string = ""
   apiUrl = 'https://api.themoviedb.org/3/discover/movie?api_key=fa6d14f9e93a82672442211716f689ca&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1;'
   movies;
+  selectedMovie;
   movieData = [
     {
       title: "Star Wars: The Rise Of Skywalker",
@@ -126,9 +128,9 @@ export class MovieService {
   getAllMovies() {
     return this.movieData;
   }
-  getMovieData(slug) {
-    return this.movieData.filter(movie => {
-      return movie.slug === slug;
+  getMovieData(id) {
+    return this.movies.filter(movie => {
+      return this.movies.id === id;
     });
   }
   searchMovies(query) {
@@ -137,6 +139,12 @@ export class MovieService {
     this.router.navigate(['search', this.query]);
 
     return this._http.get(`${this.baseUrl}+${this.query}+${this.lastUrl}`)
+    
+  }
+  selectThisMovie(movie) {
+    this.selectedMovie = movie
+    console.log(this.selectedMovie);
+    this.router.navigate(['movies']);
     
   }
   reserveChair(slug, index) {
