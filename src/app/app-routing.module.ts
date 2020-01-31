@@ -21,11 +21,11 @@ const routes: Routes = [
     component: MovieComponent
   },
   {
-    path: 'movies/:title/schedule',
+    path: 'schedule',
     component: ScheduleComponent
   },
   {
-    path: 'movies/:title/schedule/checkout',
+    path: 'checkout',
     component: CheckoutComponent
   },
   {

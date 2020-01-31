@@ -22,9 +22,9 @@ export class MovieComponent implements OnInit {
     window.scrollTo(0, 0);
 
   }
-  clickedTicketsBtn(slug) {
+  clickedTicketsBtn() {
     console.log("Button clicked")
-    this.router.navigate(['movies', slug, 'schedule'])
+    this.router.navigate(['schedule'])
   }
 
 }

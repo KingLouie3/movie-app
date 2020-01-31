@@ -1,20 +1,22 @@
-import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { Router } from "@angular/router";
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { element } from 'protractor';
+import { element } from "protractor";
+import { filter } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
 })
 export class MovieService {
-  baseUrl: string = "https://api.themoviedb.org/3/search/movie?api_key=fa6d14f9e93a82672442211716f689ca&language=en-US&query="
-  apiKey:  string = "fa6d14f9e93a82672442211716f689ca"
-  lastUrl: string =  '&page=1&include_adult=false'
-  query: string = ""
-  apiUrl = 'https://api.themoviedb.org/3/discover/movie?api_key=fa6d14f9e93a82672442211716f689ca&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1;'
+  baseUrl: string =
+    "https://api.themoviedb.org/3/search/movie?api_key=fa6d14f9e93a82672442211716f689ca&language=en-US&query=";
+  apiKey: string = "fa6d14f9e93a82672442211716f689ca";
+  lastUrl: string = "&page=1&include_adult=false";
+  query: string = "";
+  apiUrl =
+    "https://api.themoviedb.org/3/discover/movie?api_key=fa6d14f9e93a82672442211716f689ca&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1;";
   movies;
   selectedMovie;
-
   movieData = [
     {
       title: "Star Wars: The Rise Of Skywalker",
@@ -31,57 +33,58 @@ export class MovieService {
       Nyong'o, Keri Russell, Joonas Suotamo, Ian McDiarmid, and Billy Dee Williams. It features the second posthumous film
       performance by Fisher, who died in 2016 and appears through the use of unused footage from The Force Awakens.[2]`,
       chairs: [
-        'available',
-        'reserved',
-        'available',
-        'available',
-        'reserved',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',
-        'reserved',
-        'reserved',
-        'available',
-        'available',
-        'available',
-        'available',
-        'reserved',
-        'reserved',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',
-        'available',        
+        "available",
+        "reserved",
+        "available",
+        "available",
+        "reserved",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available",
+        "reserved",
+        "reserved",
+        "available",
+        "available",
+        "available",
+        "available",
+        "reserved",
+        "reserved",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available",
+        "available"
       ]
     },
     {
       title: "Jumanji",
       slug: "jumanji",
-      imageUrl: "https://images-na.ssl-images-amazon.com/images/I/71c-LwEuU0L._SY679_.jpg",
+      imageUrl:
+        "https://images-na.ssl-images-amazon.com/images/I/71c-LwEuU0L._SY679_.jpg",
       synopsis: `Star Wars: The Rise of Skywalker (also known as Star Wars: Episode IX – The Rise of Skywalker) is a 2019 American epic
       space-opera film produced, co-written, and directed by J. J. Abrams. It is the third installment of the Star Wars sequel
       trilogy, following The Force Awakens (2015) and The Last Jedi (2017), and the final episode of the nine-part "Skywalker
@@ -94,7 +97,8 @@ export class MovieService {
     {
       title: "Spies In Disguise",
       slug: "Spies-in-disguise",
-      imageUrl: "https://m.media-amazon.com/images/M/MV5BNzg1MzM3OWUtNjgzZC00NjMzLWE1NzAtOThiMDgyMjhhZDBhXkEyXkFqcGdeQXVyODkzNTgxMDg@._V1_.jpg",
+      imageUrl:
+        "https://m.media-amazon.com/images/M/MV5BNzg1MzM3OWUtNjgzZC00NjMzLWE1NzAtOThiMDgyMjhhZDBhXkEyXkFqcGdeQXVyODkzNTgxMDg@._V1_.jpg",
       synopsis: `Star Wars: The Rise of Skywalker (also known as Star Wars: Episode IX – The Rise of Skywalker) is a 2019 American epic
       space-opera film produced, co-written, and directed by J. J. Abrams. It is the third installment of the Star Wars sequel
       trilogy, following The Force Awakens (2015) and The Last Jedi (2017), and the final episode of the nine-part "Skywalker
@@ -109,7 +113,7 @@ export class MovieService {
       slug: "Frozen-2",
       imageUrl:
         "https://images-na.ssl-images-amazon.com/images/I/71hRFWx7gmL._SY679_.jpg",
-        synopsis: `Star Wars: The Rise of Skywalker (also known as Star Wars: Episode IX – The Rise of Skywalker) is a 2019 American epic
+      synopsis: `Star Wars: The Rise of Skywalker (also known as Star Wars: Episode IX – The Rise of Skywalker) is a 2019 American epic
       space-opera film produced, co-written, and directed by J. J. Abrams. It is the third installment of the Star Wars sequel
       trilogy, following The Force Awakens (2015) and The Last Jedi (2017), and the final episode of the nine-part "Skywalker
       saga".[a] It was produced by Lucasfilm and Abrams's production company Bad Robot Productions, and was distributed by
@@ -122,35 +126,60 @@ export class MovieService {
 
   constructor(public _http: HttpClient, private router: Router) {}
   getMoviesApi() {
-      console.log(`${this.apiUrl}`);
-      return this._http.get(`${this.apiUrl}`)
+    console.log(`${this.apiUrl}`);
+    return this._http.get(`${this.apiUrl}`);
   }
 
   getAllMovies() {
     return this.movieData;
   }
-  getMovieData(id) {
-    return this.movies.filter(movie => {
-      return this.movies.id === id;
+  getMovieData(slug) {
+    return this.movieData.filter(movie => {
+      return movie.slug === slug;
     });
   }
 
-  
   searchMovies(query) {
     console.log(this.query);
     console.log(this.baseUrl);
-    this.router.navigate(['search', this.query]);
+    this.router.navigate(["search", this.query]);
 
-    return this._http.get(`${this.baseUrl}+${this.query}+${this.lastUrl}`)
-    
+    return this._http.get(`${this.baseUrl}+${this.query}+${this.lastUrl}`);
   }
   selectThisMovie(movie) {
-    this.selectedMovie = movie
+    this.selectedMovie = movie;
     console.log(this.selectedMovie);
-    this.router.navigate(['movies']);
-    
+    this.router.navigate(["movies"]);
   }
-  reserveChair(slug, index) {
-    console.log('${slug}: ${index}')
+  reserveChair(slug, index, totalTickets) {
+    console.log(`${slug}: ${index}`);
+    const movieId = this.movieData.findIndex(movie => {
+      return movie.slug === slug;
+    });
+    let totalSelected = this.movieData[movieId].chairs.filter(
+      x => x === "selected"
+    ).length;
+
+    if (totalSelected < totalTickets) {
+      if (this.movieData[movieId].chairs[index] == "reserved") {
+        alert("Chair reserved Choose Another One");
+      } else {
+        this.movieData[movieId].chairs[index] =
+          this.movieData[movieId].chairs[index] === 
+          "available"
+            ? "selected"
+            : "available";
+        totalSelected = this.movieData[movieId].chairs.filter(
+          x => x === "selected"
+        ).length;
+      }
+
+      // this.movieData[movieId].chairs[index] = "selected";
+      console.log(movieId);
+    } else {
+      alert(
+        `You have ${totalSelected} tickets you can't reserve anymore tickets`
+      );
+    }
   }
 }

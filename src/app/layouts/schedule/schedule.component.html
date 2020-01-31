@@ -64,48 +64,11 @@
           <section id="chair-section">
             <div class="row">
               <div class="col-md-12">
-                <div class="chairs-grid">
-                  <!-- <ng-container *ngFor="let chair of movieData.chairs; index as i">
-                    </ng-container> -->
+                <div class="chairs-grid" >
+                 
 
-                  <div class="chair" [ngClass]="{'reserved': chair === 'reserved'}"  (click)="clickedChair()">{{i}}</div>
-                  <div class="chair"></div>
-                  <div class="chair reserved"></div>
-                  <div class="chair"></div>
-                  <div class="chair selected"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair selected"></div>
-                  <div class="chair selected"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-
+                  <div class="chair" *ngFor="let chair of movieData.chairs; index as i" [ngClass]="{'reserved': chair === 'reserved','selected': chair === 'selected'}"  (click)="clickedChair(movieData.slug, i)"></div>
+                  
                 </div>
               </div>
             </div>
@@ -124,7 +87,7 @@
               </div>
             </div>
             <div class="continue">
-              <div class="continue-btn">
+              <div class="continue-btn" (click)="clickedContinue()">
                 Continue
               </div>
             </div>
