@@ -14,6 +14,7 @@ export class MovieService {
   apiUrl = 'https://api.themoviedb.org/3/discover/movie?api_key=fa6d14f9e93a82672442211716f689ca&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1;'
   movies;
   selectedMovie;
+
   movieData = [
     {
       title: "Star Wars: The Rise Of Skywalker",
@@ -133,6 +134,8 @@ export class MovieService {
       return this.movies.id === id;
     });
   }
+
+  
   searchMovies(query) {
     console.log(this.query);
     console.log(this.baseUrl);

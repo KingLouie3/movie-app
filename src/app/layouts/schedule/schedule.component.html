@@ -1,9 +1,9 @@
 <div id="schedule-page">
-  <div class="schedule-bg" [ngStyle]="{
+  <!-- <div class="schedule-bg" [ngStyle]="{
         'background-image': 'url('+ this.movieData.imageUrl + ')'
     }">
 
-  </div>
+  </div> -->
   <div class="container">
     <div class="schedule-content">
       <div class="row">
@@ -53,7 +53,7 @@
                         <div class="colu">Senior</div>
                         <div class="colu"><input type="text" value="0" [(ngModel)]="seniorTickets"></div>
                         <div class="colu">x ${{seniorTicketsPrice}}</div>
-                        <div class="colu">= {{seniorTickets * seniorTicketsPrice}}</div>
+                        <div class="colu">= ${{seniorTickets * seniorTicketsPrice}}</div>
                       </div>
                   </div>
                 </div>
@@ -65,12 +65,19 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="chairs-grid">
-                  <ng-container *ngFor="let chair of movieData.chairs; index as i">
+                  <!-- <ng-container *ngFor="let chair of movieData.chairs; index as i">
+                    </ng-container> -->
+
                   <div class="chair" [ngClass]="{'reserved': chair === 'reserved'}"  (click)="clickedChair()">{{i}}</div>
-                  </ng-container>
-                  <!-- <div class="chair"></div>
+                  <div class="chair"></div>
                   <div class="chair reserved"></div>
                   <div class="chair"></div>
+                  <div class="chair selected"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair"></div>
+                  <div class="chair selected"></div>
                   <div class="chair selected"></div>
                   <div class="chair"></div>
                   <div class="chair"></div>
@@ -98,11 +105,7 @@
                   <div class="chair"></div>
                   <div class="chair"></div>
                   <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div>
-                  <div class="chair"></div> -->
+
                 </div>
               </div>
             </div>
