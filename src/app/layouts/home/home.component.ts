@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   movies;
   imageUrl = 'https://image.tmdb.org/t/p/original/';
   private mode = 'home'
-  constructor(private service: MovieService, private router: Router, private route: ActivatedRoute) {
+  constructor(public service: MovieService, private router: Router, private route: ActivatedRoute) {
     
       this.movieData = service.getAllMovies();
     

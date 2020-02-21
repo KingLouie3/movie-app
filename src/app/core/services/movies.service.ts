@@ -142,7 +142,7 @@ export class MovieService {
   searchMovies(query) {
     console.log(this.query);
     console.log(this.baseUrl);
-    this.router.navigate(["search", this.query]);
+    this.router.navigate(["search", query]);
 
     return this._http.get(`${this.baseUrl}+${this.query}+${this.lastUrl}`);
   }

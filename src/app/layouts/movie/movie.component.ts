@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class MovieComponent implements OnInit {
   movieData;
   selectedMovie;
-  constructor(private service: MovieService, private route: ActivatedRoute, private router: Router) { 
+  constructor(public service: MovieService, private route: ActivatedRoute, private router: Router) { 
     this.route.paramMap.subscribe(params => {
       this.movieData = service.getMovieData(params.get('title'))[0]
     ;
